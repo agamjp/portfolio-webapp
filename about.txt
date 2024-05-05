@@ -1,0 +1,4 @@
+My name is Agnieszka Przybyła-Wilkin.
+I am a Python and data enthusiast with a background in Linguistics. I have worked
+in the fields of business analysis and data engineering and used Python scripting skills
+in my academic research.
