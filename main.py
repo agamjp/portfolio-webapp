@@ -12,3 +12,10 @@ with col2:
     with open("about.txt", 'r', encoding="utf8") as file:
         content = file.read()
     st.info(content)
+
+description = """
+Below you can find some of my Python projects. 
+There are some apps I created for training and scripts I used for my academic work.
+Feel free to contact me!
+"""
+st.write(description)
