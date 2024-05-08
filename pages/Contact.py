@@ -18,7 +18,7 @@ User {user_email} sent the following message:
 {raw_message}
 """
         message = message.encode()
-        pattern = re.compile("[A-Za-z0-9-.%+_]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+        pattern = re.compile(r"[A-Za-z0-9-.%+_]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
         match = re.fullmatch(pattern, user_email)
         print(match)
         if match is not None:
