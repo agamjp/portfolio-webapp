@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import math
 
 st.set_page_config(layout="wide")
 
@@ -24,18 +25,24 @@ st.write(description)
 df = pd.read_csv("data.csv", sep=';')
 
 col3, empty_space, col4 = st.columns([1.5, 0.5, 1.5])
-half = int(len(df)/2)
+
+df_display = df[df["url"] != "https://pythonhow.com"]
+print(type(df), type(df_display))
+
+half = int(math.ceil(len(df_display)/2))
+
 
 with col3:
-    for index, row in df[:half].iterrows():
-        st.header(row["title"])
-        st.write(f"[Source code]({row['url']})")
-        st.image(row["image"])
-        st.write(row["description"])
+    for index, row in df_display[:half].iterrows():
+            st.header(row["title"])
+            st.write(f"[Source code]({row['url']})")
+            st.image(row["image"])
+            st.write(row["description"])
 
 with col4:
-    for index, row in df[half:].iterrows():
-        st.header(row["title"])
-        st.write(f"[Source code]({row['url']})")
-        st.image(row["image"])
-        st.write(row["description"])
+    for index, row in df_display[half:].iterrows():
+        if row["url"] != "https://pythonhow.com":
+            st.header(row["title"])
+            st.write(f"[Source code]({row['url']})")
+            st.image(row["image"])
+            st.write(row["description"])
